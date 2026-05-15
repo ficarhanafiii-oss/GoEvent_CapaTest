@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy & Security - GoEvent</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/privacy-security.css" />
+</head>
+<body>
+
+  <div class="top-bar">
+    <button class="back-btn" onclick="history.back()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+    </button>
+    <h2>Privacy & Security</h2>
+  </div>
+
+  <div class="content">
+
+    <p class="section-label">Keamanan Akun</p>
+    <div class="setting-card">
+      <div class="setting-row arrow" onclick="openChangePassword()">
+        <div class="setting-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+        </div>
+        <div class="setting-info">
+          <h4>Ganti Password</h4>
+          <p>Perbarui kata sandi akun kamu</p>
+        </div>
+        <div class="setting-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="section-label">Privasi</p>
+    <div class="setting-card">
+      <div class="setting-row">
+        <div class="setting-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="setting-info">
+          <h4>Bagikan Lokasi</h4>
+          <p>Izinkan akses lokasi untuk rekomendasi event</p>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="toggleLocation" checked onchange="handleToggle('toggleLocation', 'Berbagi lokasi')"/>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+          </svg>
+        </div>
+        <div class="setting-info">
+          <h4>Personalisasi Konten</h4>
+          <p>Gunakan data aktivitas untuk rekomendasi</p>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="togglePersonal" checked onchange="handleToggle('togglePersonal', 'Personalisasi konten')"/>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <p class="section-label">Data & Akun</p>
+    <div class="setting-card">
+      <div class="setting-row arrow" onclick="confirmDelete()">
+        <div class="setting-icon" style="background:#fff0f0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e53935" stroke-width="1.8">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/>
+            <path d="M10 11v6M14 11v6"/>
+            <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
+          </svg>
+        </div>
+        <div class="setting-info">
+          <h4 style="color:#e53935;">Hapus Akun</h4>
+          <p>Hapus akun dan semua data secara permanen</p>
+        </div>
+        <div class="setting-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal-overlay" id="pwModal" onclick="if(event.target===this) closePwModal()">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <div class="modal-title">Ganti Password</div>
+
+      <div class="modal-input-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+        </svg>
+        <input type="password" id="pwCurrent" placeholder="Password saat ini"/>
+      </div>
+      <div class="modal-input-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+        </svg>
+        <input type="password" id="pwNew" placeholder="Password baru"/>
+      </div>
+      <div class="modal-input-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+        </svg>
+        <input type="password" id="pwConfirm" placeholder="Konfirmasi password baru"/>
+      </div>
+
+      <button class="btn-confirm" onclick="changePassword()">Simpan Password</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="deleteModal" onclick="if(event.target===this) this.style.display='none'">
+    <div class="modal-sheet" style="text-align:center;">
+      <div class="modal-handle"></div>
+      <div style="width:64px;height:64px;border-radius:50%;background:#fff0f0;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e53935" stroke-width="2.2">
+          <polyline points="3 6 5 6 21 6"/>
+          <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/>
+          <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/>
+        </svg>
+      </div>
+      <div style="font-size:18px;font-weight:800;margin-bottom:8px;">Hapus Akun?</div>
+      <div style="font-size:13px;color:#888;margin-bottom:24px;line-height:1.6;">
+        Semua data kamu akan dihapus secara permanen dan tidak dapat dipulihkan.
+      </div>
+      <div style="display:flex;gap:10px;">
+        <button onclick="document.getElementById('deleteModal').style.display='none'" style="flex:1;background:white;color:#111;font-size:15px;font-weight:700;border:2px solid #e0e0e0;border-radius:28px;padding:14px;cursor:pointer;font-family:inherit;">Batal</button>
+        <button onclick="showToast('Permintaan penghapusan akun terkirim');document.getElementById('deleteModal').style.display='none'" style="flex:1;background:#e53935;color:white;font-size:15px;font-weight:700;border:none;border-radius:28px;padding:14px;cursor:pointer;font-family:inherit;">Ya, Hapus</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">✓ Tersimpan</div>
+
+  <script src="js/privacy-security.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Successful - GoEvent</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/payment-success.css" />
+</head>
+<body>
+  <div class="page-header">
+    <button class="back-icon-btn" onclick="window.location.href='home.html'">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    </button>
+    <div style="flex:1"></div>
+    <div style="width:36px"></div>
+  </div>
+
+  <div class="success-area">
+    <div class="check-circle">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <div class="success-title">Payment Successful</div>
+    <div class="success-sub">Your tickets have been booked successfully.<br>Check your email for the confirmation</div>
+  </div>
+
+  <div class="ticket-card">
+    <div class="ticket-top">
+      <div class="ticket-org">
+        <div class="org-logo" id="org-logo">T</div>
+        <div class="org-name" id="org-name">TechID Events</div>
+        <div class="active-badge">Active</div>
+      </div>
+      <div class="ticket-event-name" id="ticket-event-name">Indonesia Tech Summit 2026</div>
+      <div class="ticket-event-meta" id="ticket-event-meta">15 Jun • 08.00 • Jakarta</div>
+      <div id="seats-wrap" style="display:none">
+        <div class="seats-badge" id="seats-badge">Seats: H11, H12, H13</div>
+      </div>
+    </div>
+
+    <div class="ticket-divider">
+      <div class="notch-left"></div>
+      <div class="notch-right"></div>
+    </div>
+
+    <div class="ticket-bottom">
+      <div class="ticket-info-row">
+        <div class="ticket-info-item">
+          <div class="ticket-info-label">Ticket ID</div>
+          <div class="ticket-id-chip" id="ticket-id">TKT-1234567891011</div>
+        </div>
+        <div class="ticket-info-item" style="text-align:right">
+          <div class="ticket-info-label">Total Paid</div>
+          <div class="ticket-paid" id="total-paid">Rp.315.000</div>
+        </div>
+      </div>
+
+      <div class="barcode-wrap">
+        <svg class="barcode-svg" viewBox="0 0 300 70" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="70" fill="white"/>
+
+          <rect x="5" y="5" width="2" height="60" fill="#111"/>
+          <rect x="9" y="5" width="4" height="60" fill="#111"/>
+          <rect x="15" y="5" width="1" height="60" fill="#111"/>
+          <rect x="18" y="5" width="3" height="60" fill="#111"/>
+          <rect x="23" y="5" width="2" height="60" fill="#111"/>
+          <rect x="27" y="5" width="4" height="60" fill="#111"/>
+          <rect x="33" y="5" width="1" height="60" fill="#111"/>
+          <rect x="36" y="5" width="2" height="60" fill="#111"/>
+          <rect x="40" y="5" width="3" height="60" fill="#111"/>
+          <rect x="45" y="5" width="1" height="60" fill="#111"/>
+          <rect x="48" y="5" width="4" height="60" fill="#111"/>
+          <rect x="54" y="5" width="2" height="60" fill="#111"/>
+          <rect x="58" y="5" width="1" height="60" fill="#111"/>
+          <rect x="61" y="5" width="3" height="60" fill="#111"/>
+          <rect x="66" y="5" width="2" height="60" fill="#111"/>
+          <rect x="70" y="5" width="4" height="60" fill="#111"/>
+          <rect x="76" y="5" width="1" height="60" fill="#111"/>
+          <rect x="79" y="5" width="2" height="60" fill="#111"/>
+          <rect x="83" y="5" width="3" height="60" fill="#111"/>
+          <rect x="88" y="5" width="1" height="60" fill="#111"/>
+          <rect x="91" y="5" width="4" height="60" fill="#111"/>
+          <rect x="97" y="5" width="2" height="60" fill="#111"/>
+          <rect x="101" y="5" width="1" height="60" fill="#111"/>
+          <rect x="104" y="5" width="3" height="60" fill="#111"/>
+          <rect x="109" y="5" width="2" height="60" fill="#111"/>
+          <rect x="113" y="5" width="4" height="60" fill="#111"/>
+          <rect x="119" y="5" width="1" height="60" fill="#111"/>
+          <rect x="122" y="5" width="2" height="60" fill="#111"/>
+          <rect x="126" y="5" width="3" height="60" fill="#111"/>
+          <rect x="131" y="5" width="1" height="60" fill="#111"/>
+          <rect x="134" y="5" width="4" height="60" fill="#111"/>
+          <rect x="140" y="5" width="2" height="60" fill="#111"/>
+          <rect x="144" y="5" width="1" height="60" fill="#111"/>
+          <rect x="147" y="5" width="3" height="60" fill="#111"/>
+          <rect x="152" y="5" width="2" height="60" fill="#111"/>
+          <rect x="156" y="5" width="4" height="60" fill="#111"/>
+          <rect x="162" y="5" width="1" height="60" fill="#111"/>
+          <rect x="165" y="5" width="2" height="60" fill="#111"/>
+          <rect x="169" y="5" width="3" height="60" fill="#111"/>
+          <rect x="174" y="5" width="1" height="60" fill="#111"/>
+          <rect x="177" y="5" width="4" height="60" fill="#111"/>
+          <rect x="183" y="5" width="2" height="60" fill="#111"/>
+          <rect x="187" y="5" width="1" height="60" fill="#111"/>
+          <rect x="190" y="5" width="3" height="60" fill="#111"/>
+          <rect x="195" y="5" width="2" height="60" fill="#111"/>
+          <rect x="199" y="5" width="4" height="60" fill="#111"/>
+          <rect x="205" y="5" width="1" height="60" fill="#111"/>
+          <rect x="208" y="5" width="2" height="60" fill="#111"/>
+          <rect x="212" y="5" width="3" height="60" fill="#111"/>
+          <rect x="217" y="5" width="1" height="60" fill="#111"/>
+          <rect x="220" y="5" width="4" height="60" fill="#111"/>
+          <rect x="226" y="5" width="2" height="60" fill="#111"/>
+          <rect x="230" y="5" width="1" height="60" fill="#111"/>
+          <rect x="233" y="5" width="3" height="60" fill="#111"/>
+          <rect x="238" y="5" width="2" height="60" fill="#111"/>
+          <rect x="242" y="5" width="4" height="60" fill="#111"/>
+          <rect x="248" y="5" width="1" height="60" fill="#111"/>
+          <rect x="251" y="5" width="2" height="60" fill="#111"/>
+          <rect x="255" y="5" width="3" height="60" fill="#111"/>
+          <rect x="260" y="5" width="2" height="60" fill="#111"/>
+          <rect x="264" y="5" width="4" height="60" fill="#111"/>
+          <rect x="270" y="5" width="1" height="60" fill="#111"/>
+          <rect x="273" y="5" width="2" height="60" fill="#111"/>
+          <rect x="277" y="5" width="3" height="60" fill="#111"/>
+          <rect x="282" y="5" width="2" height="60" fill="#111"/>
+          <rect x="286" y="5" width="4" height="60" fill="#111"/>
+          <rect x="292" y="5" width="2" height="60" fill="#111"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-buttons">
+    <button class="btn-primary" onclick="window.location.href='tickets.html'">View My Tickets</button>
+    <button class="btn-secondary" onclick="window.location.href='home.html'">Back to Home</button>
+  </div>
+
+  <script src="js/goevent-api.js"></script>
+  <script src="js/payment-success.js"></script>
+</body>
+</html>

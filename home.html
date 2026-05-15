@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore - GoEvent</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="user-info">
+      <div class="avatar">F</div>
+      <div class="user-text">
+        <h3>Hello, Ficar!</h3>
+        <div class="user-location">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          Purwasari, Karawang
+        </div>
+      </div>
+    </div>
+    <button class="notif-btn" onclick="window.location.href='notification.html'" style="position:relative;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.8">
+        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+        <path d="M13.73 21a2 2 0 01-3.46 0"/>
+      </svg>
+      <span style="position:absolute;top:6px;right:6px;width:8px;height:8px;background:#e53935;border-radius:50%;border:2px solid #e0e4ea;"></span>
+    </button>
+  </div>
+
+  <div class="search-wrap">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" placeholder="Search..." id="searchInput" />
+  </div>
+
+  <div class="categories">
+    <button class="chip active" data-cat="All">All</button>
+    <button class="chip" data-cat="Live Concert">Live Concert</button>
+    <button class="chip" data-cat="Art Exhibition">Art Exhibition</button>
+    <button class="chip" data-cat="Seminar">Seminar</button>
+    <button class="chip" data-cat="Stand Up Comedy">Stand Up Comedy</button>
+  </div>
+
+  <div class="section-header">
+    <h2>Popular Event</h2>
+    <a href="all-events.html" class="view-all">View all</a>
+  </div>
+
+  <div class="events-list page-content">
+
+    <div class="event-card" data-category="Live Concert" onclick="openDetail('hindia')">
+      <div class="event-card-img">
+        <img src="assets/HindiaConcert.jpg" alt="Hindia" />
+        <div class="event-badge">Live Concert</div>
+        <button class="event-fav-btn" id="fav-hindia" onclick="toggleFav(event,'hindia')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </button>
+        <div class="event-price-overlay"><span>Start From</span><strong>Rp.300.000</strong></div>
+      </div>
+      <div class="event-card-info">
+        <h3>Hindia Pop Music Concert</h3>
+        <div class="event-meta">
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>28 Mei • 19.00</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#e53935"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>Jakarta</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card" data-category="Art Exhibition" onclick="openDetail('art')">
+      <div class="event-card-img">
+        <img src="assets/ArtExhibition.jpg" alt="Art Exhibition" />
+        <div class="event-badge">Art Exhibition</div>
+        <button class="event-fav-btn" id="fav-art" onclick="toggleFav(event,'art')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </button>
+        <div class="event-price-overlay"><span>Start From</span><strong>Rp.80.000</strong></div>
+      </div>
+      <div class="event-card-info">
+        <h3>Nusantara Art Exhibition</h3>
+        <div class="event-meta">
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>3 Jun • 10.00</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#e53935"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>Bandung</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card" data-category="Seminar" onclick="openDetail('techseminar')">
+      <div class="event-card-img">
+        <img src="assets/TechSeminar.png" alt="Tech Seminar" />
+        <div class="event-badge">Seminar</div>
+        <button class="event-fav-btn" id="fav-techseminar" onclick="toggleFav(event,'techseminar')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </button>
+        <div class="event-price-overlay"><span>Start From</span><strong>Rp.150.000</strong></div>
+      </div>
+      <div class="event-card-info">
+        <h3>Indonesia Tech Summit 2026</h3>
+        <div class="event-meta">
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>15 Jun • 08.00</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#e53935"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>Jakarta</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card" data-category="Stand Up Comedy" onclick="openDetail('standup')">
+      <div class="event-card-img">
+        <img src="assets/StandUpComedy.jpg" alt="Stand Up Comedy" />
+        <div class="event-badge">Stand Up Comedy</div>
+        <button class="event-fav-btn" id="fav-standup" onclick="toggleFav(event,'standup')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </button>
+        <div class="event-price-overlay"><span>Start From</span><strong>Rp.120.000</strong></div>
+      </div>
+      <div class="event-card-info">
+        <h3>Malam Komedi: Raditya Dika Live</h3>
+        <div class="event-meta">
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>28 Jun • 20.00</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#e53935"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>Karawang</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-results" id="noResults">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <p>Tidak ada event di kategori ini</p>
+    </div>
+
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="home.html" class="nav-item active">
+      <div class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+      EXPLORE
+    </a>
+    <a href="tickets.html" class="nav-item">
+      <div class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="7" width="22" height="10" rx="2"/><path d="M8 7v10M16 7v10"/></svg></div>
+      TICKETS
+    </a>
+    <a href="saved.html" class="nav-item">
+      <div class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+      SAVED
+    </a>
+    <a href="profile.html" class="nav-item">
+      <div class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      PROFILE
+    </a>
+  </nav>
+
+  <div class="overlay-backdrop" id="backdrop" onclick="closeDetail()"></div>
+
+  <div class="detail-overlay" id="detail-hindia">
+    <div class="detail-hero">
+      <div class="drag-handle-wrap"><div class="drag-handle"></div></div>
+      <img src="assets/HindiaConcert.jpg" alt="Hindia" />
+      <button class="back-btn" onclick="closeDetail()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+      <button class="detail-fav-btn" id="detail-fav-hindia" onclick="toggleFav(event,'hindia')"><svg viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+      <div class="detail-badge-pos"><div class="detail-badge">Live Concert</div></div>
+    </div>
+    <div class="detail-body">
+      <h1>Hindia Pop Music Concert</h1>
+      <div class="info-row">
+        <div class="info-box"><div class="info-box-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div class="info-box-text"><span>Date & Time</span><strong>28 Mei • 19.00</strong></div></div>
+        <div class="info-box"><div class="info-box-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="#e53935"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div><div class="info-box-text"><span>Location</span><strong>Jakarta</strong></div></div>
+      </div>
+      <div class="about-section"><h2>About Event</h2><p>Hindia Pop Music Concert menampilkan salah satu musisi paling berpengaruh di Indonesia, dikenal lewat lirik jujur dan storytelling emosional. Dengan konsep panggung unik dan atmosfer yang imersif, konser ini menghadirkan pengalaman bermakna melalui lagu-lagu populernya.</p></div>
+      <div class="divider-line"></div>
+      <div class="organizer"><div class="organizer-logo"><img src="assets/HindiaConcert.jpg" alt="Hindia" /></div><div class="organizer-info"><h3>Hindia Official <svg width="16" height="16" viewBox="0 0 24 24" fill="#3D5AF1"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></h3><span>Verified Organizer</span></div></div>
+    </div>
+    <div class="detail-bottom-bar"><div class="price-block"><span>Starting From</span><strong>Rp.300.000</strong></div><button class="btn-book" onclick="bookEvent('hindia','Hindia Pop Music Concert','28 Apr • 19.00 • Jakarta',300000,'concert')">Book Now</button></div>
+  </div>
+
+  <div class="detail-overlay" id="detail-art">
+    <div class="detail-hero">
+      <div class="drag-handle-wrap"><div class="drag-handle"></div></div>
+      <img src="assets/ArtExhibition.jpg" alt="Art Exhibition" />
+      <button class="back-btn" onclick="closeDetail()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+      <button class="detail-fav-btn" id="detail-fav-art" onclick="toggleFav(event,'art')"><svg viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+      <div class="detail-badge-pos"><div class="detail-badge">Art Exhibition</div></div>
+    </div>
+    <div class="detail-body">
+      <h1>Nusantara Art Exhibition</h1>
+      <div class="info-row">
+        <div class="info-box"><div class="info-box-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div class="info-box-text"><span>Date & Time</span><strong>3 Jun • 10.00</strong></div></div>
+        <div class="info-box"><div class="info-box-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="#e53935"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div><div class="info-box-text"><span>Location</span><strong>Bandung</strong></div></div>
+      </div>
+      <div class="about-section"><h2>About Event</h2><p>Nusantara Art Exhibition menghadirkan karya-karya seni kontemporer terbaik dari seniman Indonesia. Menampilkan instalasi berskala besar, lukisan ekspresif, dan karya interaktif yang mengajak pengunjung menjelajahi perpaduan budaya, identitas, dan imajinasi di ruang galeri yang hidup.</p></div>
+      <div class="divider-line"></div>
+      <div class="organizer"><div class="organizer-logo"><img src="assets/ArtExhibition.jpg" alt="Art Space" /></div><div class="organizer-info"><h3>Art Space Official <svg width="16" height="16" viewBox="0 0 24 24" fill="#3D5AF1"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></h3><span>Verified Organizer</span></div></div>
+    </div>
+    <div class="detail-bottom-bar"><div class="price-block"><span>Starting From</span><strong>Rp.80.000</strong></div><button class="btn-book" onclick="bookEvent('art','Nusantara Art Exhibition','3 Jun • 10.00 • Bandung',80000,'general')">Book Now</button></div>
+  </div>
+
+  <div class="detail-overlay" id="detail-techseminar">
+    <div class="detail-hero">
+      <div class="drag-handle-wrap"><div class="drag-handle"></div></div>
+      <img src="assets/TechSeminar.png" alt="Tech Summit" />
+      <button class="back-btn" onclick="closeDetail()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+      <button class="detail-fav-btn" id="detail-fav-techseminar" onclick="toggleFav(event,'techseminar')"><svg viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+      <div class="detail-badge-pos"><div class="detail-badge">Seminar</div></div>
+    </div>
+    <div class="detail-body">
+      <h1>Indonesia Tech Summit 2026</h1>
+      <div class="info-row">
+        <div class="info-box"><div class="info-box-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div class="info-box-text"><span>Date & Time</span><strong>15 Jun • 08.00</strong></div></div>
+        <div class="info-box"><div class="info-box-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="#e53935"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div><div class="info-box-text"><span>Location</span><strong>Jakarta</strong></div></div>
+      </div>
+      <div class="about-section"><h2>About Event</h2><p>Indonesia Tech Summit 2026 adalah konferensi teknologi terbesar di Indonesia yang menghadirkan para pemimpin industri, startup founder, dan developer dari seluruh nusantara. Dari AI hingga Web3, dapatkan wawasan terkini, networking, dan workshop eksklusif dalam satu hari penuh inspirasi.</p></div>
+      <div class="divider-line"></div>
+      <div class="organizer"><div class="organizer-logo"><img src="assets/TechSeminar.png" alt="TechID" /></div><div class="organizer-info"><h3>TechID Events <svg width="16" height="16" viewBox="0 0 24 24" fill="#3D5AF1"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></h3><span>Verified Organizer</span></div></div>
+    </div>
+    <div class="detail-bottom-bar"><div class="price-block"><span>Starting From</span><strong>Rp.150.000</strong></div><button class="btn-book" onclick="bookEvent('techseminar','Indonesia Tech Summit 2026','15 Jun • 08.00 • Jakarta',35000,'seminar')">Book Now</button></div>
+  </div>
+
+  <div class="detail-overlay" id="detail-standup">
+    <div class="detail-hero">
+      <div class="drag-handle-wrap"><div class="drag-handle"></div></div>
+      <img src="assets/StandUpComedy.jpg" alt="Stand Up Comedy" />
+      <button class="back-btn" onclick="closeDetail()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+      <button class="detail-fav-btn" id="detail-fav-standup" onclick="toggleFav(event,'standup')"><svg viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+      <div class="detail-badge-pos"><div class="detail-badge">Stand Up Comedy</div></div>
+    </div>
+    <div class="detail-body">
+      <h1>Malam Komedi: Raditya Dika Live</h1>
+      <div class="info-row">
+        <div class="info-box"><div class="info-box-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div class="info-box-text"><span>Date & Time</span><strong>28 Jun • 20.00</strong></div></div>
+        <div class="info-box"><div class="info-box-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="#e53935"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div><div class="info-box-text"><span>Location</span><strong>Surabaya</strong></div></div>
+      </div>
+      <div class="about-section"><h2>About Event</h2><p>Malam Komedi menghadirkan Raditya Dika secara live dalam satu malam penuh tawa. Dengan materi segar dan cerita-cerita unik dari kehidupan sehari-hari, show ini menjanjikan hiburan berkelas yang bikin ngakak nonstop. Jangan sampai ketinggalan momen langka ini!</p></div>
+      <div class="divider-line"></div>
+      <div class="organizer"><div class="organizer-logo"><img src="assets/StandUpComedy.jpg" alt="Komedi.id" /></div><div class="organizer-info"><h3>Komedi.id <svg width="16" height="16" viewBox="0 0 24 24" fill="#3D5AF1"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></h3><span>Verified Organizer</span></div></div>
+    </div>
+    <div class="detail-bottom-bar"><div class="price-block"><span>Starting From</span><strong>Rp.120.000</strong></div><button class="btn-book" onclick="bookEvent('standup','Malam Komedi: Raditya Dika Live','28 Jun • 20.00 • Surabaya',120000,'general')">Book Now</button></div>
+  </div>
+
+  <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment - GoEvent</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/payment-instruction.css" />
+</head>
+<body>
+  <div class="page-header">
+    <button class="back-icon-btn" onclick="history.back()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    </button>
+    <h1>Payment Method</h1>
+    <div class="header-spacer"></div>
+  </div>
+
+  <div class="content-scroll">
+
+    <div class="timer-banner">
+      <div>
+        <div class="timer-text">Complete payment within</div>
+        <div class="timer-countdown" id="countdown">24 : 00 : 00</div>
+      </div>
+      <div class="timer-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8">
+          <circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 3"/><path d="M9 1h6M12 1v3"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="total-row">
+        <span class="total-label">Total Amount</span>
+        <span class="total-amount" id="total-amount">Rp.315.000</span>
+      </div>
+    </div>
+
+    <div id="bank-content">
+      <div class="section-card">
+        <div class="bank-header">
+          <div class="bank-logo-circle" id="bank-logo-text">BCA</div>
+          <div class="bank-name" id="bank-display-name">Bank BCA</div>
+        </div>
+        <div class="divider"></div>
+        <div class="va-label">No. Rek / Virtual Account</div>
+        <div class="va-row">
+          <div class="va-number" id="va-number">126 1234 5678 9101</div>
+          <button class="copy-btn" onclick="copyVA()">Salin</button>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            How to pay via mobile banking transfer
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="accordion-content">
+            <ol>
+              <li>Open your mobile banking app</li>
+              <li>Select Transfer menu</li>
+              <li>Choose "Transfer to Virtual Account"</li>
+              <li>Enter the Virtual Account number above</li>
+              <li>Verify the amount and confirm payment</li>
+            </ol>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            How to pay via internet banking transfer
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="accordion-content">
+            <ol>
+              <li>Login to your internet banking</li>
+              <li>Select Transfer &gt; Virtual Account</li>
+              <li>Enter the VA number and confirm</li>
+              <li>Enter your token/OTP code</li>
+              <li>Payment done</li>
+            </ol>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            How to pay via ATM transfer
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="accordion-content">
+            <ol>
+              <li>Go to nearest ATM</li>
+              <li>Select Transfer menu</li>
+              <li>Select "To Virtual Account"</li>
+              <li>Enter the VA number</li>
+              <li>Confirm the amount and complete</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="qris-content" style="display:none">
+      <div class="section-card">
+        <div class="qris-wrap">
+          <div class="qris-logo">
+            <svg width="160" height="30" viewBox="0 0 160 30">
+              <rect x="0" y="5" width="22" height="20" rx="2" fill="#1a1a1a"/>
+              <rect x="2" y="7" width="8" height="8" rx="1" fill="white"/>
+              <rect x="12" y="7" width="8" height="8" rx="1" fill="white"/>
+              <rect x="2" y="17" width="8" height="6" rx="1" fill="white"/>
+              <text x="28" y="22" font-size="14" font-weight="900" fill="#1a1a1a" font-family="sans-serif">QRIS</text>
+              <text x="65" y="16" font-size="8" fill="#555" font-family="sans-serif">QR Code Standar</text>
+              <text x="65" y="26" font-size="8" fill="#555" font-family="sans-serif">Pembayaran Nasional</text>
+            </svg>
+          </div>
+
+          <svg class="qr-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="200" fill="white"/>
+
+            <rect x="10" y="10" width="50" height="50" rx="4" fill="#111"/>
+            <rect x="15" y="15" width="40" height="40" rx="3" fill="white"/>
+            <rect x="20" y="20" width="30" height="30" rx="2" fill="#111"/>
+            <rect x="140" y="10" width="50" height="50" rx="4" fill="#111"/>
+            <rect x="145" y="15" width="40" height="40" rx="3" fill="white"/>
+            <rect x="150" y="20" width="30" height="30" rx="2" fill="#111"/>
+            <rect x="10" y="140" width="50" height="50" rx="4" fill="#111"/>
+            <rect x="15" y="145" width="40" height="40" rx="3" fill="white"/>
+            <rect x="20" y="150" width="30" height="30" rx="2" fill="#111"/>
+
+            <rect x="70" y="10" width="6" height="6" fill="#111"/>
+            <rect x="80" y="10" width="6" height="6" fill="#111"/>
+            <rect x="100" y="10" width="6" height="6" fill="#111"/>
+            <rect x="70" y="20" width="6" height="6" fill="#111"/>
+            <rect x="90" y="20" width="6" height="6" fill="#111"/>
+            <rect x="110" y="20" width="6" height="6" fill="#111"/>
+            <rect x="120" y="10" width="6" height="6" fill="#111"/>
+            <rect x="75" y="30" width="6" height="6" fill="#111"/>
+            <rect x="95" y="30" width="6" height="6" fill="#111"/>
+            <rect x="115" y="30" width="6" height="6" fill="#111"/>
+            <rect x="70" y="40" width="6" height="6" fill="#111"/>
+            <rect x="85" y="40" width="6" height="6" fill="#111"/>
+            <rect x="105" y="40" width="6" height="6" fill="#111"/>
+            <rect x="125" y="40" width="6" height="6" fill="#111"/>
+            <rect x="70" y="50" width="6" height="6" fill="#111"/>
+            <rect x="90" y="50" width="6" height="6" fill="#111"/>
+            <rect x="110" y="50" width="6" height="6" fill="#111"/>
+            <rect x="10" y="70" width="6" height="6" fill="#111"/>
+            <rect x="20" y="70" width="6" height="6" fill="#111"/>
+            <rect x="35" y="70" width="6" height="6" fill="#111"/>
+            <rect x="50" y="70" width="6" height="6" fill="#111"/>
+            <rect x="65" y="70" width="6" height="6" fill="#111"/>
+            <rect x="80" y="70" width="6" height="6" fill="#111"/>
+            <rect x="95" y="70" width="6" height="6" fill="#111"/>
+            <rect x="115" y="70" width="6" height="6" fill="#111"/>
+            <rect x="130" y="70" width="6" height="6" fill="#111"/>
+            <rect x="145" y="70" width="6" height="6" fill="#111"/>
+            <rect x="160" y="70" width="6" height="6" fill="#111"/>
+            <rect x="175" y="70" width="6" height="6" fill="#111"/>
+            <rect x="185" y="70" width="6" height="6" fill="#111"/>
+            <rect x="10" y="80" width="6" height="6" fill="#111"/>
+            <rect x="30" y="80" width="6" height="6" fill="#111"/>
+            <rect x="55" y="80" width="6" height="6" fill="#111"/>
+            <rect x="75" y="80" width="6" height="6" fill="#111"/>
+            <rect x="90" y="80" width="6" height="6" fill="#111"/>
+            <rect x="110" y="80" width="6" height="6" fill="#111"/>
+            <rect x="125" y="80" width="6" height="6" fill="#111"/>
+            <rect x="150" y="80" width="6" height="6" fill="#111"/>
+            <rect x="170" y="80" width="6" height="6" fill="#111"/>
+            <rect x="185" y="80" width="6" height="6" fill="#111"/>
+            <rect x="10" y="90" width="6" height="6" fill="#111"/>
+            <rect x="25" y="90" width="6" height="6" fill="#111"/>
+            <rect x="45" y="90" width="6" height="6" fill="#111"/>
+            <rect x="65" y="90" width="6" height="6" fill="#111"/>
+            <rect x="85" y="90" width="6" height="6" fill="#111"/>
+            <rect x="100" y="90" width="6" height="6" fill="#111"/>
+            <rect x="120" y="90" width="6" height="6" fill="#111"/>
+            <rect x="140" y="90" width="6" height="6" fill="#111"/>
+            <rect x="155" y="90" width="6" height="6" fill="#111"/>
+            <rect x="175" y="90" width="6" height="6" fill="#111"/>
+            <rect x="10" y="100" width="6" height="6" fill="#111"/>
+            <rect x="35" y="100" width="6" height="6" fill="#111"/>
+            <rect x="60" y="100" width="6" height="6" fill="#111"/>
+            <rect x="75" y="100" width="6" height="6" fill="#111"/>
+            <rect x="95" y="100" width="6" height="6" fill="#111"/>
+            <rect x="115" y="100" width="6" height="6" fill="#111"/>
+            <rect x="130" y="100" width="6" height="6" fill="#111"/>
+            <rect x="145" y="100" width="6" height="6" fill="#111"/>
+            <rect x="165" y="100" width="6" height="6" fill="#111"/>
+            <rect x="180" y="100" width="6" height="6" fill="#111"/>
+            <rect x="10" y="110" width="6" height="6" fill="#111"/>
+            <rect x="30" y="110" width="6" height="6" fill="#111"/>
+            <rect x="50" y="110" width="6" height="6" fill="#111"/>
+            <rect x="70" y="110" width="6" height="6" fill="#111"/>
+            <rect x="90" y="110" width="6" height="6" fill="#111"/>
+            <rect x="105" y="110" width="6" height="6" fill="#111"/>
+            <rect x="125" y="110" width="6" height="6" fill="#111"/>
+            <rect x="140" y="110" width="6" height="6" fill="#111"/>
+            <rect x="160" y="110" width="6" height="6" fill="#111"/>
+            <rect x="175" y="110" width="6" height="6" fill="#111"/>
+            <rect x="185" y="110" width="6" height="6" fill="#111"/>
+            <rect x="10" y="120" width="6" height="6" fill="#111"/>
+            <rect x="25" y="120" width="6" height="6" fill="#111"/>
+            <rect x="45" y="120" width="6" height="6" fill="#111"/>
+            <rect x="65" y="120" width="6" height="6" fill="#111"/>
+            <rect x="80" y="120" width="6" height="6" fill="#111"/>
+            <rect x="100" y="120" width="6" height="6" fill="#111"/>
+            <rect x="120" y="120" width="6" height="6" fill="#111"/>
+            <rect x="135" y="120" width="6" height="6" fill="#111"/>
+            <rect x="155" y="120" width="6" height="6" fill="#111"/>
+            <rect x="170" y="120" width="6" height="6" fill="#111"/>
+            <rect x="70" y="140" width="6" height="6" fill="#111"/>
+            <rect x="85" y="140" width="6" height="6" fill="#111"/>
+            <rect x="100" y="140" width="6" height="6" fill="#111"/>
+            <rect x="120" y="140" width="6" height="6" fill="#111"/>
+            <rect x="135" y="140" width="6" height="6" fill="#111"/>
+            <rect x="155" y="140" width="6" height="6" fill="#111"/>
+            <rect x="170" y="140" width="6" height="6" fill="#111"/>
+            <rect x="185" y="140" width="6" height="6" fill="#111"/>
+            <rect x="70" y="155" width="6" height="6" fill="#111"/>
+            <rect x="90" y="155" width="6" height="6" fill="#111"/>
+            <rect x="110" y="155" width="6" height="6" fill="#111"/>
+            <rect x="125" y="155" width="6" height="6" fill="#111"/>
+            <rect x="145" y="155" width="6" height="6" fill="#111"/>
+            <rect x="165" y="155" width="6" height="6" fill="#111"/>
+            <rect x="180" y="155" width="6" height="6" fill="#111"/>
+            <rect x="70" y="170" width="6" height="6" fill="#111"/>
+            <rect x="85" y="170" width="6" height="6" fill="#111"/>
+            <rect x="105" y="170" width="6" height="6" fill="#111"/>
+            <rect x="120" y="170" width="6" height="6" fill="#111"/>
+            <rect x="140" y="170" width="6" height="6" fill="#111"/>
+            <rect x="155" y="170" width="6" height="6" fill="#111"/>
+            <rect x="175" y="170" width="6" height="6" fill="#111"/>
+            <rect x="70" y="185" width="6" height="6" fill="#111"/>
+            <rect x="90" y="185" width="6" height="6" fill="#111"/>
+            <rect x="110" y="185" width="6" height="6" fill="#111"/>
+            <rect x="130" y="185" width="6" height="6" fill="#111"/>
+            <rect x="150" y="185" width="6" height="6" fill="#111"/>
+            <rect x="170" y="185" width="6" height="6" fill="#111"/>
+            <rect x="185" y="185" width="6" height="6" fill="#111"/>
+          </svg>
+          <div class="nmid">NMID : ID1234567891011</div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="how-to-header">How to Pay with QRIS</div>
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-text">Open your e-wallet or mobile banking app</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-text">Select the Scan QR or QRIS feature</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-text">Scan the QR code displayed on the screen</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-text">Verify the amount and complete the payment</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-action" id="bottom-bar">
+    <button class="btn-ok" onclick="simulatePaymentDone()">OK</button>
+  </div>
+
+  <div id="qris-bottom" style="display:none; position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:480px; padding:12px 16px 28px; background:white; border-top:1px solid var(--border); z-index:50;">
+    <button style="width:100%;background:var(--primary);color:white;border:none;border-radius:25px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;" onclick="simulatePaymentDone()">Save QR Code</button>
+  </div>
+
+  <script src="js/goevent-api.js"></script>
+  <script src="js/payment-instruction.js"></script>
+</body>
+</html>

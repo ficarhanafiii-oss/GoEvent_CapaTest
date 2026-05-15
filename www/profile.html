@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - GoEvent</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+
+  <div class="profile-hero">
+    <div class="profile-avatar">F</div>
+    <h2>Ficar Hanafi</h2>
+    <p>ficarhanafiii@gmail.com</p>
+  </div>
+
+  <div class="stats-card">
+    <div class="stat-item">
+      <h3 id="statActive">1</h3>
+      <span>Active</span>
+    </div>
+    <div class="stat-item">
+      <h3 id="statSaved">0</h3>
+      <span>Saved</span>
+    </div>
+    <div class="stat-item">
+      <h3 id="statHistory">1</h3>
+      <span>History</span>
+    </div>
+  </div>
+
+  <div class="menu-list">
+
+    <a href="edit-profile.html" class="menu-item">
+      <div class="menu-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+          <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+        </svg>
+      </div>
+      <span class="menu-label">Edit Profile</span>
+      <div class="menu-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </div>
+    </a>
+
+    <a href="notification.html" class="menu-item">
+      <div class="menu-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 01-3.46 0"/>
+        </svg>
+      </div>
+      <span class="menu-label">Notification</span>
+      <div class="menu-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </div>
+    </a>
+
+    <a href="privacy-security.html" class="menu-item">
+      <div class="menu-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <span class="menu-label">Privacy and Security</span>
+      <div class="menu-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </div>
+    </a>
+
+    <a href="help-support.html" class="menu-item">
+      <div class="menu-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+      </div>
+      <span class="menu-label">Help and Support</span>
+      <div class="menu-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </div>
+    </a>
+
+    <a href="about-app.html" class="menu-item">
+      <div class="menu-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+      <span class="menu-label">About App</span>
+      <div class="menu-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="logout-wrap">
+    <button class="btn-logout" onclick="confirmLogout()">Log Out</button>
+  </div>
+
+  <div id="logoutModal" style="
+    display:none; position:fixed; inset:0;
+    background:rgba(0,0,0,0.45); z-index:200;
+    align-items:flex-end; justify-content:center;
+  ">
+    <div style="
+      background:white; border-radius:24px 24px 0 0;
+      width:100%; max-width:480px;
+      padding:28px 24px 36px; text-align:center;
+    ">
+      <div style="width:40px;height:4px;background:#ddd;border-radius:2px;margin:0 auto 20px;"></div>
+      <div style="width:64px;height:64px;border-radius:50%;background:#fff0f0;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e53935" stroke-width="2.2">
+          <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+      </div>
+      <div style="font-size:18px;font-weight:800;margin-bottom:8px;color:#111;">Keluar dari Akun?</div>
+      <div style="font-size:13px;color:#888;margin-bottom:24px;line-height:1.6;">
+        Kamu akan keluar dari GoEvent.<br/>Yakin ingin melanjutkan?
+      </div>
+      <div style="display:flex;gap:10px;">
+        <button onclick="closeLogout()" style="
+          flex:1;background:white;color:#111;font-size:15px;font-weight:700;
+          border:2px solid #e0e0e0;border-radius:28px;padding:14px;
+          cursor:pointer;font-family:inherit;
+        ">Batal</button>
+        <button onclick="doLogout()" style="
+          flex:1;background:#e53935;color:white;font-size:15px;font-weight:700;
+          border:none;border-radius:28px;padding:14px;
+          cursor:pointer;font-family:inherit;
+        ">Ya, Keluar</button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="home.html" class="nav-item">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+      </div>
+      EXPLORE
+    </a>
+    <a href="tickets.html" class="nav-item">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="1" y="7" width="22" height="10" rx="2"/><path d="M8 7v10M16 7v10"/>
+        </svg>
+      </div>
+      TICKETS
+    </a>
+    <a href="saved.html" class="nav-item">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+        </svg>
+      </div>
+      SAVED
+    </a>
+    <a href="profile.html" class="nav-item active">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      PROFILE
+    </a>
+  </nav>
+  <script src="js/profile.js"></script>
+</body>
+</html>

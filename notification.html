@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notifications - GoEvent</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/notification.css" />
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <button class="back-btn" onclick="history.back()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+      </button>
+      <h2>Notifications</h2>
+    </div>
+    <button class="mark-all-btn" onclick="markAllRead()">Mark all read</button>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="all" onclick="switchTab('all', this)">All</button>
+    <button class="tab-btn" data-tab="ticket" onclick="switchTab('ticket', this)">Tickets</button>
+    <button class="tab-btn" data-tab="promo" onclick="switchTab('promo', this)">Promo</button>
+    <button class="tab-btn" data-tab="update" onclick="switchTab('update', this)">Updates</button>
+  </div>
+
+  <div class="notif-list" id="notifList">
+
+    <div class="notif-group-label">Today</div>
+
+    <div class="notif-item unread" data-type="ticket" id="n1" onclick="readNotif('n1')">
+      <div class="notif-icon-wrap blue">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5AF1" stroke-width="1.8">
+          <rect x="1" y="7" width="22" height="10" rx="2"/>
+          <path d="M8 7v10M16 7v10"/>
+        </svg>
+      </div>
+      <div class="notif-content">
+        <div class="notif-title">Tiket Berhasil Dibeli!</div>
+        <div class="notif-desc">Tiket Hindia Pop Music Concert kamu sudah dikonfirmasi. Cek halaman tiket untuk detail.</div>
+        <div class="notif-time">5 menit lalu</div>
+      </div>
+      <div class="unread-dot" id="dot-n1"></div>
+    </div>
+
+    <div class="notif-item unread" data-type="update" id="n2" onclick="readNotif('n2')">
+      <div class="notif-icon-wrap yellow">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.8">
+          <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 01-3.46 0"/>
+        </svg>
+      </div>
+      <div class="notif-content">
+        <div class="notif-title">Pengingat Event</div>
+        <div class="notif-desc">Indonesia Tech Summit 2026 tinggal 2 hari lagi! Pastikan kamu sudah siap.</div>
+        <div class="notif-time">1 jam lalu</div>
+      </div>
+      <div class="unread-dot" id="dot-n2"></div>
+    </div>
+
+    <div class="notif-group-label">Yesterday</div>
+
+    <div class="notif-item unread" data-type="promo" id="n3" onclick="readNotif('n3')">
+      <div class="notif-icon-wrap red">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e53935" stroke-width="1.8">
+          <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+        </svg>
+      </div>
+      <div class="notif-content">
+        <div class="notif-title">Promo Spesial 30%!</div>
+        <div class="notif-desc">Diskon 30% untuk tiket Nusantara Art Exhibition. Berlaku sampai besok jam 23.59.</div>
+        <div class="notif-time">Kemarin • 18.30</div>
+      </div>
+      <div class="unread-dot" id="dot-n3"></div>
+    </div>
+
+    <div class="notif-item" data-type="update" id="n4" onclick="readNotif('n4')">
+      <div class="notif-icon-wrap green">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="1.8">
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+        </svg>
+      </div>
+      <div class="notif-content">
+        <div class="notif-title">Pembayaran Berhasil</div>
+        <div class="notif-desc">Pembayaran untuk Malam Komedi: Raditya Dika Live telah berhasil diproses.</div>
+        <div class="notif-time">Kemarin • 14.05</div>
+      </div>
+    </div>
+
+    <div class="notif-group-label" id="older-label">Older</div>
+
+    <div class="notif-item" data-type="promo" id="n5" onclick="readNotif('n5')">
+      <div class="notif-icon-wrap blue">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D5AF1" stroke-width="1.8">
+          <rect x="3" y="4" width="18" height="18" rx="2"/>
+          <path d="M16 2v4M8 2v4M3 10h18"/>
+        </svg>
+      </div>
+      <div class="notif-content">
+        <div class="notif-title">Event Baru Tersedia</div>
+        <div class="notif-desc">Stand Up Comedy baru di Karawang! Raditya Dika hadir untuk malam penuh tawa.</div>
+        <div class="notif-time">3 hari lalu</div>
+      </div>
+    </div>
+
+    <div class="notif-item" data-type="ticket" id="n6" onclick="readNotif('n6')">
+      <div class="notif-icon-wrap yellow">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.8">
+          <rect x="1" y="7" width="22" height="10" rx="2"/>
+          <path d="M8 7v10M16 7v10"/>
+        </svg>
+      </div>
+      <div class="notif-content">
+        <div class="notif-title">Tiket Segera Berakhir</div>
+        <div class="notif-desc">Early bird untuk Hindia Pop Music Concert berakhir dalam 24 jam.</div>
+        <div class="notif-time">5 hari lalu</div>
+      </div>
+    </div>
+
+    <div class="empty-state" id="emptyState">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+        <path d="M13.73 21a2 2 0 01-3.46 0"/>
+      </svg>
+      <p>Tidak ada notifikasi di sini</p>
+    </div>
+
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="home.html" class="nav-item">
+      <div class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+      EXPLORE
+    </a>
+    <a href="tickets.html" class="nav-item">
+      <div class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="7" width="22" height="10" rx="2"/><path d="M8 7v10M16 7v10"/></svg></div>
+      TICKETS
+    </a>
+    <a href="saved.html" class="nav-item">
+      <div class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+      SAVED
+    </a>
+    <a href="profile.html" class="nav-item">
+      <div class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      PROFILE
+    </a>
+  </nav>
+
+  <script src="js/notification.js"></script>
+</body>
+</html>

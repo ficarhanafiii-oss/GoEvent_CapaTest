@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Help & Support - GoEvent</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/help-support.css" />
+</head>
+<body>
+
+  <div class="top-bar">
+    <button class="back-btn" onclick="history.back()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+    </button>
+    <h2>Help & Support</h2>
+  </div>
+
+  <div class="content">
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+      <input type="text" placeholder="Cari pertanyaan atau topik..." oninput="filterFaq(this.value)"/>
+    </div>
+
+    <p class="section-label">Hubungi Kami</p>
+    <div class="contact-grid">
+      <a href="mailto:support@goevent.id" class="contact-card">
+        <div class="contact-card-icon" style="background:#e8ecfd;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3D5AF1" stroke-width="1.8">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <h4>Email</h4>
+        <p>support@goevent.id</p>
+      </a>
+      <div class="contact-card" onclick="showToast('Menghubungi WhatsApp...')">
+        <div class="contact-card-icon" style="background:#e8f8ed;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="1.8">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.14a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <h4>WhatsApp</h4>
+        <p>+62 811-0000-000</p>
+      </div>
+      <div class="contact-card" onclick="showToast('Membuka live chat...')">
+        <div class="contact-card-icon" style="background:#fdf6e8;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.8">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+          </svg>
+        </div>
+        <h4>Live Chat</h4>
+        <p>Respons cepat</p>
+      </div>
+      <div class="contact-card" onclick="showToast('Membuka Instagram...')">
+        <div class="contact-card-icon" style="background:#fde8e8;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e53935" stroke-width="1.8">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="#e53935" stroke="none"/>
+          </svg>
+        </div>
+        <h4>Instagram</h4>
+        <p>@goevent.id</p>
+      </div>
+    </div>
+
+    <p class="section-label">FAQ</p>
+    <div class="faq-card" id="faqContainer">
+
+      <div class="faq-item" data-q="cara beli tiket pembelian">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Bagaimana cara membeli tiket?</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Pilih event yang kamu inginkan di halaman Explore, klik "Beli Tiket", pilih jumlah dan tipe tiket, lanjutkan ke pembayaran. Tiket akan dikirim ke email dan bisa dilihat di halaman Tickets.</div></div>
+      </div>
+
+      <div class="faq-item" data-q="pembayaran metode bayar">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Metode pembayaran apa yang tersedia?</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">GoEvent mendukung pembayaran via QRIS, transfer bank (BCA, Mandiri, BNI, BRI), e-wallet (GoPay, OVO, DANA, ShopeePay), dan kartu kredit/debit Visa/Mastercard.</div></div>
+      </div>
+
+      <div class="faq-item" data-q="refund batalkan tiket cancel">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Bisakah saya membatalkan atau refund tiket?</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Kebijakan refund tergantung pada penyelenggara event. Umumnya pembatalan dapat dilakukan hingga 7 hari sebelum event. Cek detail di halaman tiket atau hubungi support kami.</div></div>
+      </div>
+
+      <div class="faq-item" data-q="lupa password reset akun login">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Saya lupa password, bagaimana cara reset?</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Di halaman Login, klik "Lupa Password?". Masukkan email yang terdaftar, lalu cek email kamu untuk tautan reset password. Tautan berlaku selama 30 menit.</div></div>
+      </div>
+
+      <div class="faq-item" data-q="tiket tidak muncul hilang email">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Tiket saya tidak muncul, apa yang harus dilakukan?</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Coba refresh halaman Tickets atau logout lalu login kembali. Jika tiket masih tidak muncul dalam 1×24 jam setelah pembayaran berhasil, hubungi support dengan melampirkan bukti pembayaran.</div></div>
+      </div>
+
+    </div>
+
+    <p class="section-label" style="margin-top:20px;">Laporkan Masalah</p>
+    <div class="report-card">
+      <p>Ada bug atau masalah teknis? Ceritakan di sini dan tim kami akan segera merespons.</p>
+      <textarea class="report-textarea" id="reportText" placeholder="Jelaskan masalah yang kamu alami..."></textarea>
+      <button class="btn-send" onclick="sendReport()">Kirim Laporan</button>
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast">✓ Terkirim</div>
+
+  <script src="js/help-support.js"></script>
+</body>
+</html>

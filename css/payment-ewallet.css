@@ -1,0 +1,66 @@
+body { background: var(--bg); display: flex; flex-direction: column; min-height: 100vh; }
+
+    .page-header {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 20px 16px;
+    }
+    .back-icon-btn {
+      width: 36px; height: 36px; border: none; background: none;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+    }
+    .page-header h1 { font-size: 18px; font-weight: 700; flex: 1; text-align: center; }
+    .header-spacer { width: 36px; }
+
+    .center-content {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 40px 24px; text-align: center;
+    }
+
+    .wallet-logo-big {
+      width: 100px; height: 100px; border-radius: 24px;
+      background: #00aed6; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px; font-size: 42px; font-weight: 900; color: white;
+      box-shadow: 0 8px 24px rgba(0,174,214,0.35);
+    }
+    .wallet-logo-big.ovo { background: #4c2a7e; box-shadow: 0 8px 24px rgba(76,42,126,0.35); }
+    .wallet-logo-big.dana { background: #118eea; box-shadow: 0 8px 24px rgba(17,142,234,0.35); }
+
+    .redirect-title { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .redirect-sub { font-size: 14px; color: var(--text-gray); line-height: 1.6; max-width: 280px; margin: 0 auto 32px; }
+
+    .amount-box {
+      background: white; border-radius: 16px; padding: 20px 32px;
+      margin-bottom: 32px; text-align: center; width: 100%;
+    }
+    .amount-label { font-size: 13px; color: var(--text-gray); margin-bottom: 4px; }
+    .amount-value { font-size: 28px; font-weight: 700; color: var(--primary); }
+
+    .loading-dots { display: flex; gap: 8px; justify-content: center; margin-bottom: 24px; }
+    .dot-anim {
+      width: 10px; height: 10px; border-radius: 50%; background: var(--primary);
+      animation: bounce 0.8s infinite alternate;
+    }
+    .dot-anim:nth-child(2) { animation-delay: 0.2s; }
+    .dot-anim:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { from { transform: translateY(0); opacity: 0.6; } to { transform: translateY(-12px); opacity: 1; } }
+
+    .status-text { font-size: 14px; color: var(--text-gray); }
+
+    .sim-section {
+      background: white; border-radius: 16px; padding: 20px;
+      margin: 0 16px 24px; text-align: center;
+    }
+    .sim-title { font-size: 13px; color: var(--text-gray); margin-bottom: 12px; }
+    .sim-note { font-size: 11px; color: #bbb; margin-top: 8px; }
+    .btn-sim-success {
+      width: 100%; background: #4caf50; color: white;
+      border: none; border-radius: 12px; padding: 14px;
+      font-size: 15px; font-weight: 700; cursor: pointer;
+      font-family: inherit; margin-bottom: 8px;
+    }
+    .btn-sim-fail {
+      width: 100%; background: #e53935; color: white;
+      border: none; border-radius: 12px; padding: 14px;
+      font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit;
+    }

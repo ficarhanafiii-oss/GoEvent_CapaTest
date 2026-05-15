@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Wallet Payment - GoEvent</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/payment-ewallet.css" />
+</head>
+<body>
+  <div class="page-header">
+    <button class="back-icon-btn" onclick="history.back()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    </button>
+    <h1>Payment Method</h1>
+    <div class="header-spacer"></div>
+  </div>
+
+  <div class="center-content">
+    <div class="wallet-logo-big" id="wallet-logo">G</div>
+    <div class="redirect-title" id="redirect-title">Opening Gopay...</div>
+    <div class="redirect-sub">You will be redirected to the <span id="wallet-name-sub">Gopay</span> app to complete your payment.</div>
+
+    <div class="amount-box">
+      <div class="amount-label">Payment Amount</div>
+      <div class="amount-value" id="amount-display">Rp.315.000</div>
+    </div>
+
+    <div class="loading-dots">
+      <div class="dot-anim"></div>
+      <div class="dot-anim"></div>
+      <div class="dot-anim"></div>
+    </div>
+    <div class="status-text" id="status-text">Waiting for payment confirmation...</div>
+  </div>
+
+  <div class="sim-section">
+    <div class="sim-title">🔧 Demo Mode — Simulate payment result:</div>
+    <button class="btn-sim-success" onclick="simSuccess()">✓ Payment Successful</button>
+    <button class="btn-sim-fail" onclick="simFail()">✗ Payment Failed / Cancelled</button>
+    <div class="sim-note">In production, replace this with actual e-wallet deep link + webhook callback</div>
+  </div>
+
+  <script src="js/goevent-api.js"></script>
+  <script src="js/payment-ewallet.js"></script>
+</body>
+</html>

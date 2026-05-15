@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Tickets - GoEvent</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/tickets.css" />
+</head>
+<body>
+  <div class="page-header"><h1>My Tickets</h1></div>
+
+  <div class="tab-bar-wrap">
+    <div class="tab-bar" id="tabBar">
+      <div class="tab-indicator" id="tabIndicator"></div>
+      <button class="tab-item active" data-tab="0">Unpaid</button>
+      <button class="tab-item" data-tab="1">Upcoming</button>
+      <button class="tab-item" data-tab="2">Completed</button>
+      <button class="tab-item" data-tab="3">Cancelled</button>
+    </div>
+  </div>
+
+  <div class="tabs-viewport page-content">
+    <div class="tabs-track" id="tabsTrack">
+      <div class="tab-panel" id="panel-unpaid"><div class="loading-wrap"><div class="spinner"></div></div></div>
+      <div class="tab-panel" id="panel-upcoming"><div class="loading-wrap"><div class="spinner"></div></div></div>
+      <div class="tab-panel" id="panel-completed"><div class="loading-wrap"><div class="spinner"></div></div></div>
+      <div class="tab-panel" id="panel-cancelled"><div class="loading-wrap"><div class="spinner"></div></div></div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="home.html" class="nav-item">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+      </div>
+      EXPLORE
+    </a>
+    <a href="tickets.html" class="nav-item active">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="1" y="7" width="22" height="10" rx="2"/><path d="M8 7v10M16 7v10"/>
+        </svg>
+      </div>
+      TICKETS
+    </a>
+    <a href="saved.html" class="nav-item">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+        </svg>
+      </div>
+      SAVED
+    </a>
+    <a href="profile.html" class="nav-item">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      PROFILE
+    </a>
+  </nav>
+
+  <script src="js/goevent-api.js"></script>
+  <script src="js/tickets.js"></script>
+</body>
+</html>

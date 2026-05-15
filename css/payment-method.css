@@ -1,0 +1,135 @@
+body { background: var(--bg); }
+
+    .page-header {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 20px 16px;
+    }
+    .back-icon-btn {
+      width: 36px; height: 36px; border: none; background: none;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0;
+    }
+    .page-header h1 { font-size: 18px; font-weight: 700; flex: 1; text-align: center; }
+    .header-spacer { width: 36px; }
+
+    .payment-card {
+      background: white; border-radius: var(--card-radius);
+      margin: 0 16px 16px; padding: 18px 20px;
+    }
+    .payment-card-title { font-size: 16px; font-weight: 700; margin-bottom: 14px; }
+
+    .method-group { margin-bottom: 10px; }
+    .method-group:last-child { margin-bottom: 0; }
+
+    .method-option {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 16px; border: 1.5px solid var(--border);
+      border-radius: 12px; cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      background: white;
+    }
+    .method-option.selected { border-color: var(--primary); background: #f0f3ff; }
+
+    .method-icon {
+      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .bank-icon   { background: #f0f2f5; }
+    .wallet-icon { background: #1a56db; }
+    .qris-icon   { background: #f0f2f5; }
+
+    .method-info { flex: 1; }
+    .method-info strong { font-size: 15px; font-weight: 700; display: block; }
+    .method-info small  { font-size: 12px; color: var(--text-gray); }
+
+    .radio-circle {
+      width: 20px; height: 20px; border-radius: 50%;
+      border: 2px solid #ccc; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.15s;
+    }
+    .radio-circle .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--primary); display: none;
+    }
+    .method-option.selected .radio-circle { border-color: var(--primary); }
+    .method-option.selected .radio-circle .dot { display: block; }
+
+    .sub-list {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.25s ease,
+                  padding-top 0.25s;
+      padding-top: 0;
+    }
+    .sub-list.open {
+      max-height: 500px;
+      opacity: 1;
+      padding-top: 10px;
+    }
+
+    .sub-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; border: 1.5px solid var(--border);
+      border-radius: 10px; cursor: pointer; background: white;
+      transition: border-color 0.15s, background 0.15s;
+      margin-bottom: 8px;
+    }
+    .sub-item:last-child { margin-bottom: 0; }
+    .sub-item.selected { border-color: var(--primary); background: #f0f3ff; }
+
+    .sub-logo { width: 44px; flex-shrink: 0; display: flex; align-items: center; }
+    .sub-name { flex: 1; font-size: 13px; color: var(--text-gray); }
+
+    .sub-radio {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 2px solid #ccc; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.15s;
+    }
+    .sub-radio .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--primary); display: none;
+    }
+    .sub-item.selected .sub-radio { border-color: var(--primary); }
+    .sub-item.selected .sub-radio .dot { display: block; }
+
+    .summary-card {
+      background: white; border-radius: var(--card-radius);
+      margin: 0 16px 16px; padding: 18px 20px;
+    }
+    .summary-label {
+      font-size: 11px; font-weight: 700; color: var(--text-gray);
+      letter-spacing: 1px; margin-bottom: 14px;
+    }
+    .summary-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; font-size: 14px; color: var(--text-dark);
+    }
+    .summary-row + .summary-row { border-top: 1px solid var(--border); }
+    .summary-row.total {
+      border-top: 1px solid var(--border); padding-top: 10px; margin-top: 2px;
+    }
+    .summary-row.total span { font-weight: 700; color: var(--primary); font-size: 15px; }
+
+    .bottom-bar {
+      position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; max-width: 480px; background: white;
+      padding: 12px 20px 28px; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      z-index: 50;
+    }
+    .bar-total-label { font-size: 12px; color: var(--text-gray); }
+    .bar-total-amount { font-size: 18px; font-weight: 700; color: var(--primary); }
+    .btn-confirm {
+      background: var(--primary); color: white;
+      border: none; border-radius: 25px; padding: 14px 32px;
+      font-size: 15px; font-weight: 700; cursor: pointer;
+      font-family: inherit; transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-confirm:hover { background: var(--primary-dark); }
+    .btn-confirm:disabled { background: #bbb; cursor: not-allowed; }
+
+    .content-scroll { padding-bottom: 100px; }
